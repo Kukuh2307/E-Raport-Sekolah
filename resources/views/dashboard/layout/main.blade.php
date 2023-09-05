@@ -113,6 +113,36 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script>
+        // fungsi untuk menampilkan gambar saat admin menginputkan gambar baru
+        function tampilGambar() {
+            let gambarInput = document.getElementById('gambar');
+            let tampilGambar = document.querySelector('.tampil-gambar');
+
+            tampilGambar.style.display = 'block';
+
+            const oFReader = new FileReader();
+
+            oFReader.readAsDataURL(gambarInput.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                tampilGambar.src = oFREvent.target.result;
+        };
+    }
+
+    ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    // data table
+    // $(document).ready(function(){
+    //     $('#myTable').DataTable();
+    // });
+    new DataTable('#myTable');
+    </script>
+
     <script src="{{ asset('dashboard') }}/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
     <script src="{{ asset('dashboard') }}/assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -127,6 +157,8 @@
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
+    {{-- script tampil gambar --}}
+
     <!--morris JavaScript -->
     <script src="{{ asset('dashboard') }}/assets/node_modules/raphael/raphael-min.js"></script>
     <script src="{{ asset('dashboard') }}/assets/node_modules/morrisjs/morris.min.js"></script>

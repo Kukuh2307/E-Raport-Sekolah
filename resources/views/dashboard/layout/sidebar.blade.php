@@ -7,7 +7,7 @@
                 <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
                             class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="fa fa-graduation-cap"></i><span class="hide-menu">Profile Sekolah</span></a>
+                <li> <a class="waves-effect waves-dark" href="/Profile-Sekolah/create" aria-expanded="false"><i class="fa fa-graduation-cap"></i><span class="hide-menu">Profile Sekolah</span></a>
                 </li>
                 <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i
                             class="fa fa-location-arrow"></i><span class="hide-menu">Kelas</span></a>

@@ -17,7 +17,7 @@
         <!-- Nama Sekolah -->
         <div class="mb-3">
             <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
-            <input type="text" class="form-control @error('nama_sekolah') is-invalid @enderror" id="nama_sekolah" name="nama_sekolah" value="{{ old('nama_sekolah') }}">
+            <input type="text" class="form-control @error('nama_sekolah') is-invalid @enderror" id="nama_sekolah" name="nama_sekolah" value="{{ old('nama_sekolah',$data->nama_sekolah) }}">
             @error('nama_sekolah')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -29,12 +29,12 @@
         <div class="mb-3">
             <label for="foto" class="form-label">Foto Sekolah</label>
             <input type="hidden" name="fotoLama">
-            {{-- @if ($sekolah->foto)
-                            <img src="{{ asset('images/'.$sekolah->foto) }}" class="img-fluid tampil-gambar mb-3 col-lg-5 d-block" width="500px" alt="">
+            @if ($data->foto)
+                <img src="{{ asset('images/'.$data->foto) }}" class="img-fluid tampil-gambar mb-3 col-lg-5 d-block" width="500px" alt="">
             @else
-                            <img src="" alt="" width="500px" class="img-fluid tampil-gambar mb-3 col-lg-5 d-block">
-            @endif --}}
-            <img src="" alt="" width="500px" class="img-fluid tampil-gambar mb-3">
+                <img src="" alt="" width="500px" class="img-fluid tampil-gambar mb-3 col-lg-5 d-block">
+            @endif
+            {{-- <img src="" alt="" width="500px" class="img-fluid tampil-gambar mb-3"> --}}
             <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" id="gambar" onchange="tampilGambar()">
             @error('foto')
                 <div class="invalid-feedback">
@@ -46,7 +46,10 @@
         <!-- Status Sekolah -->
         <div class="mb-3">
             <label for="status_sekolah" class="form-label">Status Sekolah</label>
-            <select class="form-select @error('status_sekolah') is-invalid @enderror" id="status_sekolah" name="status_sekolah" value="{{ old('status_sekolah') }}" id="status_sekolah" name="status_sekolah">
+            <select class="form-select @error('status_sekolah') is-invalid @enderror" id="status_sekolah" name="status_sekolah" value="{{ old('status_sekolah',$data->status_sekolah) }}" id="status_sekolah" name="status_sekolah">
+                @if ($data->status_sekolah)
+                <option value="{{ $data->status_sekolah }}">{{ $data->status_sekolah }}</option>
+                @endif
                 <option value="">Pilih Status Sekolah</option>
                 <option value="Negeri">Negeri</option>
                 <option value="Swasta">Swasta</option>
@@ -61,7 +64,7 @@
         {{-- kepala sekolah --}}
         <div class="mb-3">
             <label for="kepala_tk" class="form-label">Kepala Sekolah</label>
-            <input type="text" class="form-control @error('kepala_tk') is-invalid @enderror" id="kepala_tk" name="kepala_tk" value="{{ old('kepala_tk') }}">
+            <input type="text" class="form-control @error('kepala_tk') is-invalid @enderror" id="kepala_tk" name="kepala_tk" value="{{ old('kepala_tk',$data->kepala_tk) }}">
             @error('kepala_tk')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -72,7 +75,7 @@
         <!-- Jumlah Guru -->
         <div class="mb-3">
             <label for="jumlah_guru" class="form-label">Jumlah Guru</label>
-            <input type="number" class="form-control @error('jumlah_guru') is-invalid @enderror" id="jumlah_guru" name="jumlah_guru" value="{{ old('jumlah_guru') }}">
+            <input type="number" class="form-control @error('jumlah_guru') is-invalid @enderror" id="jumlah_guru" name="jumlah_guru" value="{{ old('jumlah_guru',$data->jumlah_guru) }}">
             @error('jumlah_guru')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -83,7 +86,7 @@
         <!-- Email Sekolah -->
         <div class="mb-3">
             <label for="email" class="form-label">Email Sekolah</label>
-            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email',$data->email) }}">
             @error('email')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -99,7 +102,7 @@
                     {{ $message }}
                 </div>
             @enderror
-            <textarea class="form-control @error('alamat_sekolah') is-invalid @enderror" id="alamat_sekolah" name="alamat_sekolah" rows="3">{{ old('alamat_sekolah') }}</textarea>
+            <textarea class="form-control @error('alamat_sekolah') is-invalid @enderror" id="alamat_sekolah" name="alamat_sekolah" rows="3">{{ old('alamat_sekolah',$data->alamat_sekolah) }}</textarea>
         </div>
 
         <button type="submit" class="btn" style="background-color:#20aee3; color:white">Submit</button>

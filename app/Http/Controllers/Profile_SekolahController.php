@@ -12,7 +12,18 @@ class Profile_SekolahController extends Controller
      */
     public function index()
     {
-        //
+        // $nama = 'TK MARDISIWI KEPUHERJO';
+        // $profile = Profile_Sekolah::where('nama_sekolah',$nama);
+        // if($profile){
+        //     $data = $profile->nama_sekolah;
+        // } else{
+        //     $data = 'tidak bisa di akses';
+        // }
+        $profile = Profile_Sekolah::where('id', 3)->first();
+        return view('dashboard.profile.index')->with([
+            'url'       => 'Profile Sekolah',
+            'data'      => $profile,
+        ]);
     }
 
     /**

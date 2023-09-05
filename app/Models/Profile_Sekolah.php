@@ -9,14 +9,14 @@ class Profile_Sekolah extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    // protected $fillable = [
-    //     'nama_sekolah',
-    //     // Daftar kolom lain yang ingin Anda izinkan untuk pengisian massal
-    //     'foto',
-    //     'status_sekolah',
-    //     'kepala_tk',
-    //     'jumlah_guru',
-    //     'email',
-    //     'alamat_sekolah',
-    // ];
+    protected $fillable = [
+        'nama_sekolah',
+        // Daftar kolom lain yang ingin Anda izinkan untuk pengisian massal
+        'foto',
+        'status_sekolah',
+        'kepala_tk',
+        'jumlah_guru',
+        'email',
+        'alamat_sekolah',
+    ];
 }

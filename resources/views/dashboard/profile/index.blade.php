@@ -12,8 +12,9 @@
             {{ 'Edit Profile Sekolah gagal' }}
         </div>
     @endif
-    <form action="/Profile-Sekolah" method="POST" enctype="multipart/form-data">
+    <form action="/Profile-Sekolah/{{ $data->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <!-- Nama Sekolah -->
         <div class="mb-3">
             <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
@@ -105,7 +106,7 @@
             <textarea class="form-control @error('alamat_sekolah') is-invalid @enderror" id="alamat_sekolah" name="alamat_sekolah" rows="3">{{ old('alamat_sekolah',$data->alamat_sekolah) }}</textarea>
         </div>
 
-        <button type="submit" class="btn" style="background-color:#20aee3; color:white">Submit</button>
+        <button type="submit" class="btn" style="background-color:#20aee3; color:white">Update</button>
     </form>
 </div>
 @endsection

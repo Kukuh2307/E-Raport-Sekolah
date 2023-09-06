@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard.index');
+    return view('dashboard.index')->with(['url' => 'Dashboard']);
 });
 // route profile sekolah
 Route::resource('/Profile-Sekolah', Profile_SekolahController::class);

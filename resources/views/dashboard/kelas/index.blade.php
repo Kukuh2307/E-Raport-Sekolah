@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 @section('content')
 <div class="table-responsive mt-3 no-wrap">
-    <table class="table vm no-th-brd pro-of-month">
+    <table class="table vm no-th-brd pro-of-month" id="myTable">
         <div class="text-start mt-1">
             <a href="/Kelas/create"
                 class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Tambah</a>
@@ -31,18 +31,18 @@
             @endphp
             @foreach ($data as $dt)
             <tr>
-                <td>{{ $no++ }}</td>
+                <td><h5>{{ $no++ }}</h5></td>
                 <td>
-                    <h3>{{ $dt->nama_kelas }}</h3>
+                    <h5>{{ $dt->nama_kelas }}</h5>
                 </td>
                 <td>
-                    <h3>{{ $dt->tahun_ajaran }}</h3>
+                    <h5>{{ $dt->tahun_ajaran }}</h5>
                 </td>    
                 <td>
-                    <h3>{{ $dt->semester }}</h3>
+                    <h5>{{ $dt->semester }}</h5>
                 </td>
                 <td>
-                    <h3>{{ $dt->guru_id }}</h3>
+                    <h5>{{ $dt->guru_id }}</h5>
                 </td>
                 <td>
                     <a href="/Kelas/{{ $dt->id }}/edit"

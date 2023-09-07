@@ -29,6 +29,9 @@
     <link href="{{ asset('dashboard') }}/css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="{{ asset('dashboard') }}/css/colors/default.css" id="theme" rel="stylesheet">
+
+    {{-- datatable --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -113,6 +116,10 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    
+    {{-- datatables --}}
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
     <script>
         // fungsi untuk menampilkan gambar saat admin menginputkan gambar baru
         function tampilGambar() {

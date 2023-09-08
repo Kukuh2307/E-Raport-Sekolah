@@ -25,29 +25,30 @@
                 <th>Opsi</th>
             </tr>
         </thead>
-        {{-- <tbody>
+        <tbody>
             @php
                 $no = 1;
             @endphp
+            {{-- @dd($data) --}}
             @foreach ($data as $dt)
             <tr>
                 <td><h5>{{ $no++ }}</h5></td>
                 <td>
-                    <h5>{{ $dt->nama_kelas }}</h5>
+                    <img src="{{ asset('images/' . $dt->foto) }}" width="80px" alt="{{ $dt->nama }}">
                 </td>
                 <td>
-                    <h5>{{ $dt->tahun_ajaran }}</h5>
+                    <h5>{{ $dt->nama }}</h5>
                 </td>    
                 <td>
-                    <h5>{{ $dt->semester }}</h5>
+                    <h5>{{ $dt->email }}</h5>
                 </td>
                 <td>
-                    <h5>{{ $dt->guru_id }}</h5>
+                    <h5>{{ $dt->tabelKelas->nama_kelas }}</h5>
                 </td>
                 <td>
-                    <a href="/Kelas/{{ $dt->id }}/edit"
+                    <a href="/Guru/{{ $dt->id }}/edit"
                     class="btn waves-effect waves-light btn-warning hidden-md-down text-white"><i class="fa fa-pencil"></i></a>
-                        <form action="/Kelas/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus kelas??')">
+                        <form action="/Guru/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus Guru??')">
                         @csrf
                         @method('DELETE')
                         <button
@@ -56,7 +57,7 @@
                 </td>
             </tr>
             @endforeach
-        </tbody> --}}
+        </tbody>
     </table>
 </div>
 @endsection

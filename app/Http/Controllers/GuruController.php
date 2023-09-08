@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class GuruController extends Controller
 {
@@ -15,6 +16,7 @@ class GuruController extends Controller
     {
         return view('dashboard.guru.index')->with([
             'url'           => 'Guru',
+            'data'          => Guru::all(),
         ]);
     }
 
@@ -75,7 +77,12 @@ class GuruController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $guru = Guru::where('id',$id)->first();
+        return view('dashboard.guru.edit-guru')->with([
+            'url'           => 'Edit Guru',
+            'data'          => $guru,
+            'kelasList'     => Kelas::all(),
+        ]);
     }
 
     /**
@@ -83,14 +90,43 @@ class GuruController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+    try {
+        // Cari guru berdasarkan ID, atau lempar 404 jika tidak ditemukan
+        $guru = Guru::findOrFail($id);
+
+        // Validasi data yang diterima
+        $validasi = $request->validate([
+            'nama'          => 'required|max:255',
+            'email'         => 'required|email',
+            'tanggal_lahir' => 'required|date',
+            'foto'          => 'image|file|max:5120',
+            'kelas_id'      => 'required',
+        ], [
+            'nama.required'           => 'Nama guru harus di isi',
+            'email.required'          => 'Tahun Ajaran harus di isi',
+            'tanggal_lahir.required'  => 'tanggal lahir harus di isi',
+            'foto.max'                => 'Nama Kelas maksimal 10 karakter',
+            'kelas_id.required'       => 'Kelas harus di isi',
+        ]);
+
+        // Update atribut-atribut guru
+        $guru->update($validasi);
+
+        return redirect('/Guru')->with('info', 'Data Guru Berhasil di update');
+        } catch (ModelNotFoundException $e) {
+        // Guru tidak ditemukan, kembalikan respons 404
+        return response()->view('errors.404', [], 404);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $guru = Guru::where('id',$id)->first();
+        $delete = $guru->delete();
+        return redirect('Guru')->with('info','Data Guru Berhasil di hapus');;
     }
 }

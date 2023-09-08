@@ -17,7 +17,7 @@
         </div>
         <thead>
             <tr>
-                <th>no</th>
+                <th>No</th>
                 <th>Nama Kelas</th>
                 <th>Tahun Ajaran</th>
                 <th>Semester</th>

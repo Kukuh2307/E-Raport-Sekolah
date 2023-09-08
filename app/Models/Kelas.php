@@ -16,4 +16,9 @@ class Kelas extends Model
         'semester',
         'guru_id',
     ];
+    // relasi tabel kelas dengan tabel guru
+    public function tabelGuru()
+    {
+        return $this->hasMany(Guru::class);
+    }
 }

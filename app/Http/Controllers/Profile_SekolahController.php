@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile_Sekolah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class Profile_SekolahController extends Controller
 {
@@ -80,7 +81,9 @@ class Profile_SekolahController extends Controller
     
             // jika ada foto yng di upload
             if($request->hasFile('foto') && $request->file('foto')->isValid()){
-    
+                if($request->gambarLama){
+                    File::delete(public_path('images/'.$request->fotoLama));
+                }
                 $foto = $request->file('foto')->hashName();
                 // upload ke folder
                 $request->file('foto')->move(public_path('images'), $foto);

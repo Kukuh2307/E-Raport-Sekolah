@@ -6,7 +6,7 @@
     @if (Session::get('info'))
         <div class="alert alert-info">
             {{ Session::get('info') }}
-        </div>
+        </div>  
     @elseif($error = $errors->any())
     <div class="alert alert-danger">
         <ul>

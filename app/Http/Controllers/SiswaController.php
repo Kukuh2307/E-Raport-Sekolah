@@ -6,6 +6,7 @@ use App\Models\Kelas;
 use App\Models\Guru;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SiswaController extends Controller
 {
@@ -16,7 +17,7 @@ class SiswaController extends Controller
     {
         return view('dashboard.siswa.index')->with([
             'url'           => 'Siswa',
-            // 'data'          => Siswa::all(),
+            'data'          => Siswa::all(),
         ]);
     }
 
@@ -75,7 +76,13 @@ class SiswaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $siswa = Siswa::where('id',$id)->first();
+        return view('dashboard.siswa.edit-siswa')->with([
+            'url'           => 'Edit Siswa',
+            'data'          => $siswa,
+            'guruList'          => Guru::all(),
+            'kelasList'         => Kelas::all(),
+        ]);
     }
 
     /**
@@ -83,7 +90,33 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $siswa = Siswa::where('id',$id);
+        $validasi = $request->validate([
+            'foto'          => 'image|file|max:5120',
+            'nama'          => 'required|max:255',
+            'alamat'        => 'required|',
+            'nomor_induk'   => 'required',
+            'kelas_id'      => 'required',
+            'guru_id'       => 'required',
+        ], [
+            'nama.required'           => 'Nama guru harus di isi',
+            'foto.max'                => 'Nama Kelas maksimal 10 karakter',
+            'alamat.required'         => 'Alamat harus di isi',
+            'nomor_induk.required'    => 'Nomor Induk harus di isi',
+            'kelas_id.required'       => 'Kelas harus di isi',
+            'guru_id.required'        => 'Guru harus di isi',
+        ]);
+        // cek foto
+        if($request->file('foto')->isValid()){
+            if($request->gambarLama){
+                File::delete(public_path('images/'.$request->fotoLama));
+            }
+            $foto = $request->file('foto')->hashName();
+            $request->file('foto')->move(public_path('images'),$foto);
+            $validasi['foto'] = $foto;
+        }
+        $siswa->update($validasi);
+        return redirect('/Siswa')->with('info','Berhasil memperbaharui data siswa');
     }
 
     /**
@@ -91,6 +124,11 @@ class SiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $siswa = Siswa::where('id',$id)->first();
+        if($siswa->foto){
+            File::delete(public_path('images/'.$siswa->foto));
+        }
+        $delete = $siswa->delete();
+        return redirect('/Siswa')->with('info','Data Siswa berhasil di hapus');
     }
 }

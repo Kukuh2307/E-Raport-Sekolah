@@ -6,6 +6,7 @@ use App\Models\Guru;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\File;
 
 class GuruController extends Controller
 {
@@ -109,6 +110,15 @@ class GuruController extends Controller
             'kelas_id.required'       => 'Kelas harus di isi',
         ]);
 
+        // cek foto
+        if($request->file('foto')->isValid()){
+            if($request->gambarLama){
+                File::delete(public_path('images/'.$request->gambarLama));
+            }
+            $foto = $request->file('foto')->hashName();
+            $request->file('foto')->move(public_path('images'),$foto);
+            $validasi['foto'] = $foto;
+        }
         // Update atribut-atribut guru
         $guru->update($validasi);
 
@@ -126,6 +136,9 @@ class GuruController extends Controller
     public function destroy(string $id)
     {
         $guru = Guru::where('id',$id)->first();
+        if($guru->foto){
+            File::delete(public_path('images/'.$guru->foto));
+        }
         $delete = $guru->delete();
         return redirect('Guru')->with('info','Data Guru Berhasil di hapus');;
     }

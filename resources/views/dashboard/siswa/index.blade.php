@@ -27,7 +27,41 @@
             </tr>
         </thead>
         <tbody>
-            
+            @php
+                $no = 1;
+            @endphp
+            {{-- @dd($data) --}}
+            @foreach ($data as $dt)
+            <tr>
+                <td><h5>{{ $no++ }}</h5></td>
+                <td>
+                    <img src="{{ asset('images/' . $dt->foto) }}" width="80px" alt="{{ $dt->nama }}">
+                </td>
+                <td>
+                    <h5>{{ $dt->nama }}</h5>
+                </td>    
+                <td>
+                    <h5>{{ $dt->nomor_induk }}</h5>
+                </td>
+                <td>
+                    <h5>{{ $dt->tabelGuru->nama }}</h5>
+                </td>
+                <td>
+                    <h5>{{ $dt->tabelKelas->nama_kelas }}</h5>
+                </td>
+                <td>
+                    <a href="/Siswa/{{ $dt->id }}/edit"
+                    class="btn waves-effect waves-light btn-warning hidden-md-down text-white"><i class="fa fa-pencil"></i></a>
+                        <form action="/Siswa/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus Siswa??')">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                        class="btn waves-effect waves-light btn-danger hidden-md-down text-white"><i class="fa fa-trash"></i></button>
+                        </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </div>
 @endsection

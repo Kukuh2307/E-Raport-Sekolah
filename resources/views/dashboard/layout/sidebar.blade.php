@@ -18,25 +18,33 @@
                 <li> <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i
                             class="fa fa-users"></i><span class="hide-menu">Siswa</span></a>
                 </li>
-                <p class="ps-3 fw-bold">Indikator</p>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                            class="fa fa-star"></i><span class="hide-menu">NAM</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                            class="fa fa-star"></i><span class="hide-menu">Kognitif</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                            class="fa fa-star"></i><span class="hide-menu">Seni</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                            class="fa fa-star"></i><span class="hide-menu">Sosem</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                            class="fa fa-star"></i><span class="hide-menu">Bahasa</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                            class="fa fa-star"></i><span class="hide-menu">Fisik Motorik</span></a>
-                </li>
+    
+                {{-- Indikator dropdown --}}
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Indikator
+                    </button>
+                    <div class="dropdown-menu border-0" style="width: 100%;" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item waves-effect waves-dark" href="map-google.html">NAM</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Kognitif</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Seni</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Sosem</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Bahasa</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Fisik Motorik</a>
+                        </li>
+                    </div>
+                </div>
                 
             </ul>
             {{-- <div class="text-center mt-4">

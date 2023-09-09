@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\Profile_SekolahController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,7 @@ Route::resource('/Profile-Sekolah', Profile_SekolahController::class);
 Route::resource('/Kelas', KelasController::class);
 
 // route guru
-Route::resource('/Guru',GuruController::class);
+Route::resource('/Guru',GuruController::class); 
+
+// route siswa
+Route::resource('Siswa',SiswaController::class);

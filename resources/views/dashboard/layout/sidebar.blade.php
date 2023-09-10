@@ -15,7 +15,7 @@
                 <li> <a class="waves-effect waves-dark" href="/Guru" aria-expanded="false"><i
                             class="fa fa-users"></i><span class="hide-menu">Guru</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i
+                <li> <a class="waves-effect waves-dark" href="/Siswa" aria-expanded="false"><i
                             class="fa fa-users"></i><span class="hide-menu">Siswa</span></a>
                 </li>
     

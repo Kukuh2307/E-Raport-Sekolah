@@ -29,7 +29,7 @@
         <!-- Foto Sekolah -->
         <div class="mb-3">
             <label for="foto" class="form-label">Foto Sekolah</label>
-            <input type="hidden" name="fotoLama">
+            <input type="hidden" name="gambarLama">
             @if ($data->foto)
                 <img src="{{ asset('images/'.$data->foto) }}" class="img-fluid tampil-gambar mb-3 col-lg-5 d-block" width="500px" alt="">
             @else

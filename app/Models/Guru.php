@@ -24,4 +24,9 @@ class Guru extends Model
     public function tabelKelas(){
         return $this->belongsTo(Kelas::class,'kelas_id');
     }
+
+    // relasi tabel guru dengan tabel siswa
+    public function tabelSiswa(){
+        return $this->belongsTo(Siswa::class);
+    }
 }

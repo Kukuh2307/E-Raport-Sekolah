@@ -21,4 +21,9 @@ class Kelas extends Model
     {
         return $this->hasMany(Guru::class);
     }
+
+    // relasi tabel kelas dengan siswa (1 kelas mimiliki banyak siswa)
+    public function tabelSiswa(){
+        return $this->hasMany(Siswa::class);
+    }
 }

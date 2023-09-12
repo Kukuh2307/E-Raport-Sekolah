@@ -19,32 +19,26 @@
             <tr>
                 <th>No</th>
                 <th>Nomor Indikator</th>
-                <th>Keterangan</th>
+                <th class="text-center">Keterangan</th>
             </tr>
         </thead>
-        {{-- <tbody>
+        <tbody>
             @php
                 $no = 1;
             @endphp
             @foreach ($data as $dt)
             <tr>
                 <td><h5>{{ $no++ }}</h5></td>
-                <td>
-                    <h5>{{ $dt->nama_kelas }}</h5>
+                <td class="text-center">
+                    <h5>{{ $dt->nomor }}</h5>
                 </td>
                 <td>
-                    <h5>{{ $dt->tahun_ajaran }}</h5>
+                    <h5 class="text-wrap">{{ $dt->keterangan }}</h5>
                 </td>    
                 <td>
-                    <h5>{{ $dt->semester }}</h5>
-                </td>
-                <td>
-                    <h5>{{ $dt->guru_id }}</h5>
-                </td>
-                <td>
-                    <a href="/Kelas/{{ $dt->id }}/edit"
+                    <a href="/IndikatorNAM/{{ $dt->id }}/edit"
                     class="btn waves-effect waves-light btn-warning hidden-md-down text-white"><i class="fa fa-pencil"></i></a>
-                        <form action="/Kelas/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus kelas??')">
+                        <form action="/IndikatorNAM/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus kelas??')">
                         @csrf
                         @method('DELETE')
                         <button
@@ -53,7 +47,7 @@
                 </td>
             </tr>
             @endforeach
-        </tbody> --}}
+        </tbody>
     </table>
 </div>
 @endsection

@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 @section('content')
 <div class="row">
-    <h1>Tambah Indikator Nilai Agama dan Moral</h1>
+    <h1>Edit Indikator Nilai Agama dan Moral</h1>
     {{-- cek apakah ada session yang dikirim atau error --}}
     @if (Session::get('info'))
         <div class="alert alert-info">
@@ -16,11 +16,12 @@
         </ul>
     </div>
     @endif
-    <form action="/IndikatorNAM" method="POST" enctype="multipart/form-data">
+    <form action="/IndikatorNAM/{{ $data->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="mb-3">
             <label for="nomor" class="form-label">Nomor Indikator</label>
-            <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nomor" name="nomor" value="{{ old('nomor') }}">
+            <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nomor" name="nomor" value="{{ old('nomor',$data->nomor) }}">
             @error('nomor')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -35,10 +36,10 @@
                     {{ $message }}
                 </div>
             @enderror
-            <textarea class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" rows="7">{{ old('keterangan') }}</textarea>
+            <textarea class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" rows="7">{{ old('keterangan',$data->keterangan) }}</textarea>
         </div>
         
-        <button type="submit" class="btn" style="background-color:#20aee3; color:white">Simpan</button>
+        <button type="submit" class="btn" style="background-color:#20aee3; color:white">Update</button>
     </form>
 </div>
 @endsection

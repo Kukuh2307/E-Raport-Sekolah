@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\IndikatorNAMController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\Profile_SekolahController;
 use App\Http\Controllers\SiswaController;
@@ -32,3 +33,6 @@ Route::resource('/Guru',GuruController::class);
 
 // route siswa
 Route::resource('Siswa',SiswaController::class);
+
+// route indikator NAM
+Route::resource('/IndikatorNAM',IndikatorNAMController::class);

@@ -28,7 +28,7 @@
                     <a class="dropdown-item waves-effect waves-dark" href="IndikatorKognitif">Kognitif</a>
                 </li>
                 <li>
-                    <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Seni</a>
+                    <a class="dropdown-item waves-effect waves-dark" href="IndikatorSeni">Seni</a>
                 </li>
                 <li>
                     <a class="dropdown-item waves-effect waves-dark" href="map-google.html">Sosem</a>

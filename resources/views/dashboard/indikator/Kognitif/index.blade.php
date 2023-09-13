@@ -22,7 +22,7 @@
                 <th class="text-center">Keterangan</th>
             </tr>
         </thead>
-        {{-- <tbody>
+        <tbody>
             @php
                 $no = 1;
             @endphp
@@ -36,9 +36,9 @@
                     <h5 class="text-wrap">{{ $dt->keterangan }}</h5>
                 </td>    
                 <td>
-                    <a href="/IndikatorNAM/{{ $dt->id }}/edit"
+                    <a href="/IndikatorKognitif/{{ $dt->id }}/edit"
                     class="btn waves-effect waves-light btn-warning hidden-md-down text-white"><i class="fa fa-pencil"></i></a>
-                        <form action="/IndikatorNAM/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus kelas??')">
+                        <form action="/IndikatorKognitif/{{ $dt->id }}" method="POST" onsubmit="return('Apakah anda yakin ingin menghapus kelas??')">
                         @csrf
                         @method('DELETE')
                         <button
@@ -47,7 +47,7 @@
                 </td>
             </tr>
             @endforeach
-        </tbody> --}}
+        </tbody>
     </table>
 </div>
 @endsection

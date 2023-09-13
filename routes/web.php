@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\IndikatorKognitifController;
 use App\Http\Controllers\IndikatorNAMController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\Profile_SekolahController;
 use App\Http\Controllers\SiswaController;
+use App\Models\IndikatorKognitif;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,6 @@ Route::resource('Siswa',SiswaController::class);
 
 // route indikator NAM
 Route::resource('/IndikatorNAM',IndikatorNAMController::class);
+
+// route indikator Kognitif
+Route::resource('/IndikatorKognitif',IndikatorKognitifController::class);

@@ -14,7 +14,7 @@ class IndikatorNAMController extends Controller
     {
         return view('dashboard.indikator.NAM.index')->with([
             'url'           => 'Indikator NAM',
-            'data'          => IndikatorNAM::all(),
+            'data'          => IndikatorNAM::orderBy('nomor','asc')->get(),
         ]);
     }
 
@@ -24,7 +24,7 @@ class IndikatorNAMController extends Controller
     public function create()
     {
         return view('dashboard.indikator.NAM.create-NAM')->with([
-            'url'           => 'Tambah Indikator NAM',
+            'url'           => 'Tambah Indikator Nilai Agama dan Moral',
         ]);
     }
 
@@ -37,7 +37,7 @@ class IndikatorNAMController extends Controller
             'nomor'                 => 'required',
             'keterangan'            => 'required',
         ],[
-            'nomor.required'                => 'Nomor Indikator harus di isi',
+            'nomor.required'                        => 'Nomor Indikator harus di isi',
             'keterangan.required'                    => 'Keterangan indikator harus di isi',
         ]);
         IndikatorNAM::create($validasi);

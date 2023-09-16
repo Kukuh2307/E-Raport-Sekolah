@@ -4,6 +4,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IndikatorKognitifController;
 use App\Http\Controllers\IndikatorNAMController;
 use App\Http\Controllers\IndikatorSeniController;
+use App\Http\Controllers\IndikatorSosemController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\Profile_SekolahController;
 use App\Http\Controllers\SiswaController;
@@ -45,3 +46,6 @@ Route::resource('/IndikatorKognitif',IndikatorKognitifController::class);
 
 // route indikator Seni
 Route::resource('/IndikatorSeni',IndikatorSeniController::class);
+
+// route indikator Sosem
+Route::resource('/IndikatorSosem',IndikatorSosemController::class);
